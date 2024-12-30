@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        background: rgb(192, 174, 238);
+        background: radial-gradient(circle, rgb(240, 66, 80) 0%, 
+        rgb(46, 28, 210) 100%);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      fieldset{
+        width: 500px;
+        border: 5px solid black;
+        border-radius: 35px;
+      }
+      input:required{
+        border: 2px solid red;
+        
+      }
+      input:optional{
+        border:2.5px dashed green;
+      }
+      input[readonly]
+      {
+        background-color:rgb(210, 242, 0) ;
+        color: rgb(214, 43, 43);
+        font-weight: 800;
+      }
+      select{
+        background-color: purple;
+        border-radius: 10px;
+        font-size: 20px;
+        width: 200px;
+        color: bisque;
+        cursor: pointer;
+      }
+ 
+      input[type="radio"]:checked    {
+        height: 20px;
+        width: 20px;
+     }  
+     input[type="radio"]:checked + label {
+        color: red;
+        font-size: 20px;
+     }  
+     p{
+        display: none ;
+     }    
+     input:hover+p{
+        display: inline;
+        color: black ;
+        background-color: #ce13a9;
+        font-weight: 400;
+     }
+     input:focus {
+        background-color: rgb(241, 124, 124);
+        color: rgb(6, 6, 6);
+        font-weight: 600;
+     }
+     img{
+        display: none;
+     }
+     input[type="Email"]:focus:valid~ img.valid
+     {
+        display: inline;
+        height: 15px;
+        width: 15px ;
+     }
+     input[type="Email"]:focus:invalid ~ img.invalid
+     {
+        display: inline;
+        height: 15px;
+        width: 15px;
+     }
+     input[type="age"]:focus:in-range:valid~ img.valid
+     {
+        display: inline;
+        height: 18px;
+        width: 18px;
+     }
+     input[type="age"]:focus:out-of-range:invalid ~ img.invalid
+     {
+        display: inline;
+        height: 18px;
+        width: 18px ;
+     }
+
+    </style>
+</head>
+<body>
+    <h1>Course Registration Form</h1>
+<form action="">
+    <fieldset >
+        <legend><B><h2>Personal Details</h2></B></legend>
+        <table >
+            <tr><td><label>First Name</label></td>
+                <td><input type ="text" name="FN" placeholder="Ex:Durga" size="15"  maxlength="15" required ><p>Enter Your Name</p>
+                </td></tr>
+            <tr><td><label>Surname</label></td>
+                <td><input type ="text" name="SN" placeholder="Ex:Prasad" optional></td></tr>
+            <tr><td>   <label>Mobile number</label></td>
+                <td><input type ="tel" placeholder=" 9888838388 " required><p>Enter Your Num</p></td></tr>
+            <tr><td> <label>Email</label></td>
+                <td><input type ="Email" name="Email" placeholder="XXXXX@gmail.com" required>
+                    <img src="/ok.png" class="valid"/>
+                    <img src="/no.png" class="invalid"/>
+                    <p>Enter Your Email</p></td></tr>
+            <tr><td>  <label>Password</label></td>
+                <td><input type="text" name="password" placeholder="min 5 character" required><p> provide 1 Uppercase,1 Lowercase,1 spl ch </p>
+                </td></tr>
+            <tr><td> <label>Confirm Password </label></td>
+                <td><input type="text" name="Password" placeholder="min 5 character" required ></td></tr>
+            <tr><td><label>DOB</label></td>
+                <td><input type="date" required></td></tr>
+            <tr><td><label>AGE</label></td>
+                <td><input type="number"  name="age"  required min="18" max="100">  
+                     <img src="/ok.png" class="valid"/>
+                    <img src="/no.png" class="invalid"/><br></td></tr>
+            <tr><td> <label>Gender</label></td>
+                <td><input type="radio" name="gender" value="M"><label>Male</label>
+                     <input type="radio" name="gender" value="F"><label>Female</label> 
+                    <input type="radio" name="gender" value="O"><label>other</label></td></tr>
+            <tr><td> <label>Select Country</label></td>
+                <td>  
+                <select name="country"><datalist>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="Japan">Japan</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                </select></datalist></td></tr>
+                <tr><td>  <label>Upload picture</label></td><td>
+                    <input type="file" name="up" ></td></tr>
+                    <tr><td>  <input type="reset"></td></tr>
+        </table>
+
+    </fieldset>
+    <fieldset>
+        <legend><b><h2>course details</h2></b></legend>
+        <table>
+            <tr>
+                <td><label>select course</label></td><td> <select>
+                    <option>full stack java course</option>
+                    <option>framework</option>
+                    <option>full stack python course</option>
+                </select></td>
+            </tr>
+            <tr><td>  <label>Delivery mode</label></td><td>   <label>Delivery mode</label>
+                <input type="radio" name="dm" value="on"><label>online</label>
+                <input type="radio" name="dm" value="off"><label>offline</label></td></tr>
+                <tr><td><label>Institute Name</label></td><td><input type="text" value="Tap Academy" readonly ></td></tr><br>
+           <tr><td> <label>Comments</label><br> 
+            <textarea rows="4" cols="15"></textarea></td></tr>
+           
+            <tr><td>  <input type="Submit"></td></tr></table>
+</form>
+</body>
+</html>
